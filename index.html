@@ -3,6 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta author="Shrisant Adhikari" content="This is the notes manager website that manges the notes">
+	<meta name="keywords" content="HTML, javascript, notes manager, notes container">
 	<title>Notes Manager</title>
 	<script src="https://kit.fontawesome.com/7dc3e89841.js" crossorigin="anonymous"></script>
 	<style type="text/css">
@@ -60,7 +62,6 @@
 			position: relative;
 			top: 0;
 			padding: 0.2rem 0.6rem 0.6rem 0.6rem;
-/*			margin-top: 0.6rem;*/
 		}
 
 		.notesShow{
@@ -68,26 +69,88 @@
 			grid-template-columns: repeat(3, 1fr);
 			gap: 1.5rem;
 			margin-top: 4rem;
-
 		}
 
 		.noteItem{
 			border: 1px solid black;
-/*background: #edd9d8;*/
-background: #ede2e1;
+			background: #ede2e1;
 		}
 
 		#removebtn, #editbtn{
 			padding: 0.3rem 0.9rem;
-/*			background: #459fcc;*/
 		}
 
 		.copybtn{
 			padding: 0.3rem 0.9rem;
-/*			background: #459fcc;*/
 		}
 
+		@media only screen and (max-width: 678px){
+			html{
+				font-size: 12px;
+			}
+			.Navbar{
+			display: flex;
+			height: 30vh;
+			justify-content: center;
+			flex-direction: column;
+			background: #212224;
+		
+		}	
 
+		ul{
+			display: none;
+		}
+		
+		#search{
+			position: relative;
+			top: 2rem;
+			padding: 2vw 3vw 2vw 3vw ;
+		}
+
+		#title{
+			width: 75vw;
+		}
+
+		#des{
+			width: 90vw;
+			margin: 2rem;
+		}
+
+		.notesShow{
+			grid-template-columns: repeat(1, 1fr);
+			gap: 1.5rem;
+			margin-top: 4rem;
+		}
+
+		#chcount{
+			margin-left: 2rem;
+		}
+
+		#btn{
+			height: 7vh !important; 
+			width: 40vw !important;	
+		}
+
+		#labelsearch{
+			display: flex;
+		}
+
+		#labelsearch label{
+			position: relative;
+			top: 4.5rem;
+			font-size: 5vw;
+		}
+
+		}
+
+		@media only screen and (min-width: 678px) and (max-width: 1000px){
+			.Navbar{
+			display: flex;
+			height: 40vh;
+			flex-direction: column;
+			background: #212224;
+			}		
+		}
 
 	</style>
 </head>
@@ -104,9 +167,10 @@ background: #ede2e1;
 					<li>About</li>
 					<li>Contact</li>
 					<li>Services</li>
-					<li><label style="font-weight: bold; color: #14b575;">search:</label><input type="text" id="search" oninput="searchNotes()"></li>
 				</ul>
+
 			</div>
+			<li id="labelsearch"><label style="font-weight: bold; color: #14b575;">search:</label><input type="text" id="search" oninput="searchNotes()"></li>
 		</div>
 		<div class="titldes">
 		<form>
@@ -114,7 +178,7 @@ background: #ede2e1;
 			<input type="text" name="title" id="title">
 			<h2 style="text-align: center;">Description</h2>
 			<textarea cols="12" rows="15" name="description" id="des" oninput="trackWord(this.id)"></textarea>
-			<p style="color: #e823a0; font-weight: bold;">character=<span id="countval">0</span></p>
+			<p style="color: #e823a0; font-weight: bold;" id="chcount">character=<span id="countval">0</span></p>
 			<div style="display: flex; justify-content: center;">
 			<button id="btn" style="height: 7vh; width: 8vw; background: #5375a3; font-size: 1.2rem; font-weight: bold; color:   #de215a;">Add Note</button>
 		</div>
@@ -124,7 +188,13 @@ background: #ede2e1;
 			
 		</div>
 	</div>
-
 </body>
 <script src="notes.js"></script>
 </html>
+
+
+
+
+
+
+
