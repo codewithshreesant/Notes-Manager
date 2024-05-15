@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Notes Manager</title>
+	<script src="https://kit.fontawesome.com/7dc3e89841.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html{
+			font-family: sans-serif;
+		}
+		.Navbar{
+			display: flex;
+			height: 10vh;
+			justify-content: space-around;
+			align-items: center;
+			background: #212224;
+			color: white;
+			font-weight: bold;
+		}
+
+		ul{
+			display: flex;
+			align-items: center;
+		}
+
+		li{
+			list-style: none;
+			padding: 1rem 3rem 1rem 3rem;
+		}
+
+		form{
+			display: flex;
+			flex-direction: column;
+		}
+
+		input{
+			padding: 2rem;
+			margin: 2rem;
+			font-size: 1rem;
+		}
+
+		#title{
+			width: 30rem;
+		}
+		#des{
+			width: 36rem;
+			margin: 2rem;
+		}
+
+		.titldes{
+			display: flex;
+			justify-content: center;
+		}
+		#search{
+			position: relative;
+			top: 0;
+			padding: 0.2rem 0.6rem 0.6rem 0.6rem;
+/*			margin-top: 0.6rem;*/
+		}
+
+		.notesShow{
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 1.5rem;
+			margin-top: 4rem;
+
+		}
+
+		.noteItem{
+			border: 1px solid black;
+/*background: #edd9d8;*/
+background: #ede2e1;
+		}
+
+		#removebtn, #editbtn{
+			padding: 0.3rem 0.9rem;
+/*			background: #459fcc;*/
+		}
+
+		.copybtn{
+			padding: 0.3rem 0.9rem;
+/*			background: #459fcc;*/
+		}
+
+
+
+	</style>
+</head>
+<body>
+
+	<div class="main_container">
+		<div class="Navbar">
+			<div>
+				<h1>Notes Manager</h1>
+			</div>
+			<div>
+				<ul>
+					<li>Home</li>
+					<li>About</li>
+					<li>Contact</li>
+					<li>Services</li>
+					<li><label style="font-weight: bold; color: #14b575;">search:</label><input type="text" id="search" oninput="searchNotes()"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="titldes">
+		<form>
+			<h1 style="font-size: 3rem;  text-align: center;">Title</h1>
+			<input type="text" name="title" id="title">
+			<h2 style="text-align: center;">Description</h2>
+			<textarea cols="12" rows="15" name="description" id="des" oninput="trackWord(this.id)"></textarea>
+			<p style="color: #e823a0; font-weight: bold;">character=<span id="countval">0</span></p>
+			<div style="display: flex; justify-content: center;">
+			<button id="btn" style="height: 7vh; width: 8vw; background: #5375a3; font-size: 1.2rem; font-weight: bold; color:   #de215a;">Add Note</button>
+		</div>
+		</form>
+		</div>
+		<div class="notesShow">
+			
+		</div>
+	</div>
+
+</body>
+<script src="notes.js"></script>
+</html>
